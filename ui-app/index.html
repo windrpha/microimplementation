@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("button").click(function(){
+        $.get( "http://localhost:8092/search", function(data, status){
+           var trHTML = '';
+          $.each(data, function (i) {
+                               trHTML +=
+                                   '<tr><td>'
+                                   + data[i].leg
+                                   + '</td><td>'
+                                   + data[i].price
+                                   + '</td><td>'
+                                   + data[i].airline_name
+                                   + '</td></tr>';
+
+                       });
+                       $('#tBody').append(trHTML);
+
+
+      });
+    });
+
+});
+</script>
+</head>
+<body>
+
+  <button>Search today's flights</button>
+
+  <table>
+  <caption>Flights</caption>
+  <thead>
+    <tr>
+      <th>Flight</th>
+      <th>Price</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody id="tBody"></tbody>
+</table>
+
+
+</body>
+</html>

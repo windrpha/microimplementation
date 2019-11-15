@@ -1,0 +1,11 @@
+
+DROP TABLE IF EXISTS FLIGHTS;
+
+CREATE TABLE FLIGHTS(
+
+    id_flight INT AUTO_INCREMENT PRIMARY KEY,
+    price DECIMAL NOT NULL,
+    leg VARCHAR(100) NOT NULL,
+    flight_date DATE NOT NULL,
+    airline_name VARCHAR(100)
+)
